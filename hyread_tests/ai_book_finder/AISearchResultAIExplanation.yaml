@@ -1,0 +1,20 @@
+appId: com.hyread.reader.v3
+tags:
+  - ai_book_finder
+---
+# TC-AI-012: 搜尋結果頁 AI 推薦說明展開
+# 驗證搜尋結果中，AI 為每本書提供的推薦理由說明（含 emoji 標籤）
+# 可在結果頁直接顯示，使用者能看到 AI 推薦原因
+# 由 run_ai_test.sh 完成導航及中文搜尋，Maestro 從搜尋結果頁開始驗證
+
+# 驗證搜尋結果顯示
+- assertVisible: "共"
+
+# 驗證 AI 推薦說明文字（設計稿顯示 AI 在結果頁提供書籍推薦描述）
+- scrollUntilVisible:
+    element:
+      text: "冰與火之歌"
+    direction: DOWN
+    timeout: 5000
+
+- assertVisible: "冰與火之歌"

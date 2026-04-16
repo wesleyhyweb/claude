@@ -1,0 +1,25 @@
+appId: com.hyread.reader.v3
+tags:
+  - ai_book_finder
+---
+# TC-AI-013: 無結果頁面 - 加入 HyRead 電子書店擴大搜尋
+# 在圖書館範圍無結果時，點擊「加入 HyRead 電子書店」按鈕，
+# 驗證來自 HyRead 電子書店的搜尋結果出現，
+# 並提供相關主題的進一步建議
+# 由 run_ai_test.sh 完成導航及中文搜尋，Maestro 從搜尋結果頁開始驗證
+
+# 驗證無結果頁面
+- assertVisible: "沒找到相關書籍"
+
+# 驗證「加入 HyRead 電子書店」引導按鈕
+- assertVisible: "加入 HyRead 電子書店"
+
+# 點擊加入 HyRead 電子書店
+- tapOn: "加入 HyRead 電子書店"
+- waitForAnimationToEnd
+
+# 驗證來自 HyRead 電子書店的結果出現
+- assertVisible: "來自 HyRead 電子書店"
+
+# 驗證「您可能有興趣」相關搜尋建議
+- assertVisible: "您可能有興趣"

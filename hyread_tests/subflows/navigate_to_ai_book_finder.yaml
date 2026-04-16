@@ -1,0 +1,31 @@
+appId: com.hyread.reader.v3
+---
+# 子流程：從 App 啟動到 AI 找書首頁
+# 使用方式：在主測試中以 runFlow: ../subflows/navigate_to_ai_book_finder.yaml 引用
+
+- launchApp:
+    appId: com.hyread.reader.v3
+    stopApp: true
+
+- waitForAnimationToEnd
+
+# 條件式處理功能導覽（clearState 後首次啟動必出現）
+- runFlow:
+    when:
+      visible: "下一頁"
+    commands:
+      - tapOn: "下一頁"
+      - tapOn: "下一頁"
+      - tapOn: "關閉"
+
+# 確認底部導航列已載入再切換
+- assertVisible: "書櫃"
+
+# 切換至底部導航 AI找書 頁籤
+- tapOn:
+    text: "AI找書"
+- waitForAnimationToEnd
+
+# 確認已進入 AI 找書首頁
+- assertVisible:
+    text: "您想找什麼書呢？"

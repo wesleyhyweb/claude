@@ -1,0 +1,4 @@
+flows:
+  - "*.yaml"              # 現有的平鋪測試（登入、書櫃、設定等）
+  - "ai_book_finder/*"    # AI 找書功能測試
+  # subflows/ 不列入，只被其他 Flow 以 runFlow 引用

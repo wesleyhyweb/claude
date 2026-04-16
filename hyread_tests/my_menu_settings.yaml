@@ -1,0 +1,48 @@
+appId: com.hyread.reader.v3
+---
+# TC-007: 選單設定 - 顯示與隱藏頁籤
+- launchApp:
+    appId: com.hyread.reader.v3
+    clearState: true
+
+- waitForAnimationToEnd
+
+# 點選功能導覽「下一頁」
+- tapOn: 下一頁
+- tapOn: 下一頁
+
+# 關閉功能導覽頁
+- tapOn: 關閉
+
+
+- tapOn:
+    text: "我的"
+- waitForAnimationToEnd
+
+# 進入選單設定
+- tapOn:
+    text: "選單設定"
+- waitForAnimationToEnd
+
+# 驗證顯示頁籤區塊
+- assertVisible:
+    text: "顯示頁籤"
+- assertVisible:
+    text: "AI找書"
+- assertVisible:
+    text: "書櫃"
+
+# 驗證隱藏頁籤區塊
+- assertVisible:
+    text: "隱藏頁籤"
+- assertVisible:
+    text: "嗨讀"
+- assertVisible:
+    text: "書店"
+- assertVisible:
+    text: "圖書館"
+
+# 點擊編輯
+- tapOn:
+    text: "編輯"
+- waitForAnimationToEnd

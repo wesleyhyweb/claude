@@ -1,0 +1,18 @@
+appId: com.hyread.reader.v3
+tags:
+  - ai_book_finder
+---
+# TC-AI-004: 搜尋無結果時的空結果頁面
+# 搜尋圖書館無館藏的書目，驗證空結果頁呈現引導提示
+# 設計稿說明：無結果時應提示使用者加入 HyRead 電子書店，
+#             或提供相關搜尋建議
+# 由 run_ai_test.sh 完成導航及中文搜尋，Maestro 從搜尋結果頁開始驗證
+
+# 驗證無結果提示文字
+- assertVisible: "沒找到相關書籍"
+
+# 驗證提供修改檢索範圍的引導
+- assertVisible: "修改檢索範圍"
+
+# 驗證引導加入 HyRead 電子書店
+- assertVisible: "HyRead 電子書店"

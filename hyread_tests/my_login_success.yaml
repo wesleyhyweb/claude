@@ -1,0 +1,53 @@
+appId: com.hyread.reader.v3
+---
+# TC-002: HyRead 電子書店 - 登入成功
+- launchApp:
+    appId: com.hyread.reader.v3
+    clearState: true
+
+- waitForAnimationToEnd
+
+# 點選功能導覽「下一頁」
+- tapOn: 下一頁
+- tapOn: 下一頁
+
+# 關閉功能導覽頁
+- tapOn: 關閉
+
+
+# 前往「我的」頁面
+- tapOn:
+    text: "我的"
+- waitForAnimationToEnd
+
+# 確認未登入狀態
+- assertVisible:
+    text: "未登入"
+
+# 點擊登入按鈕
+- tapOn:
+    text: "HyRead 電子書店_登入"
+- waitForAnimationToEnd
+
+# 確認登入頁面載入
+- assertVisible:
+    text: "使用HyRead帳號登入"
+
+# 輸入帳號
+- tapOn:
+    text: "請輸入帳號"
+- inputText: "wesley"
+
+# 輸入密碼
+- tapOn:
+    text: "請輸入密碼"
+- inputText: "1234"
+
+# 點擊登入
+- tapOn:
+    text: "登入"
+- waitForAnimationToEnd
+
+# 驗證登入成功（登入後不再顯示「未登入」）
+- assertNotVisible:
+    text: "未登入"

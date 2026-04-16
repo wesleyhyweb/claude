@@ -1,0 +1,33 @@
+appId: com.hyread.reader.v3
+---
+# TC-008: 新增圖書館入口驗證
+- launchApp:
+    appId: com.hyread.reader.v3
+    clearState: true
+
+- waitForAnimationToEnd
+
+# 點選功能導覽「下一頁」
+- tapOn: 下一頁
+- tapOn: 下一頁
+
+# 關閉功能導覽頁
+- tapOn: 關閉
+
+
+- tapOn:
+    text: "我的"
+- waitForAnimationToEnd
+
+# 確認新增圖書館按鈕存在
+- assertVisible:
+    text: "新增圖書館"
+
+# 確認常用圖書館區塊
+- assertVisible:
+    text: "常用圖書館(1)"
+
+# 點擊新增圖書館
+- tapOn:
+    text: "新增圖書館"
+- waitForAnimationToEnd

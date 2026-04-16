@@ -1,0 +1,61 @@
+appId: com.hyread.reader.v3
+tags:
+  - ai_book_finder
+---
+# TC-AI-015: AI 推薦熱門主題 - 五大分類全覆蓋驗證
+# 在 AI 找書首頁滾動，驗證五大熱門主題分類
+#（歷史文學、飲食文化、自我成長、商業和財務知識、心理學和情感管理）
+# 皆正確呈現，各分類下有書籍推薦
+
+- runFlow: ../subflows/navigate_to_ai_book_finder.yaml
+
+# 確認在 AI 找書首頁
+- assertVisible: "您想找什麼書呢？"
+
+# 滾動至熱門主題區塊 - 歷史文學
+- scrollUntilVisible:
+    element:
+      text: "歷史文學"
+    direction: DOWN
+    timeout: 5000
+
+- assertVisible: "歷史文學"
+
+# 滾動至飲食文化
+- scrollUntilVisible:
+    element:
+      text: "飲食文化"
+    direction: DOWN
+    timeout: 5000
+
+- assertVisible: "飲食文化"
+
+# 滾動至自我成長
+- scrollUntilVisible:
+    element:
+      text: "自我成長"
+    direction: DOWN
+    timeout: 5000
+
+- assertVisible: "自我成長"
+
+# 滾動至商業和財務知識
+- scrollUntilVisible:
+    element:
+      text: "商業和財務知識"
+    direction: DOWN
+    timeout: 5000
+
+- assertVisible: "商業和財務知識"
+
+# 滾動至心理學和情感管理
+- scrollUntilVisible:
+    element:
+      text: "心理學和情感管理"
+    direction: DOWN
+    timeout: 5000
+
+- assertVisible: "心理學和情感管理"
+
+# 驗證最後一個分類下也有「查看更多」連結
+- assertVisible: "查看更多"

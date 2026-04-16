@@ -1,0 +1,28 @@
+appId: com.hyread.reader.v3
+tags:
+  - smoke
+  - ai_book_finder
+---
+# TC-AI-010: 點擊 AI 提示詞建議直接搜尋
+# 驗證點擊搜尋列下方的 AI 提示詞 chip 後，
+# 可直接帶入查詢字串並執行搜尋，取得相關書單
+
+- runFlow: ../subflows/navigate_to_ai_book_finder.yaml
+
+# 點擊搜尋列展開提示詞建議
+- tapOn: "您想找什麼書呢？"
+- waitForAnimationToEnd
+
+# 驗證 AI 提示詞建議顯示
+- assertVisible: "幫你尋找"
+- assertVisible: "該如何準備多益？"
+
+# 點擊提示詞 chip：「該如何準備多益？」
+- tapOn: "該如何準備多益？"
+- waitForAnimationToEnd
+
+# 驗證提示詞已成為搜尋條件（頁面顯示該文字或搜尋中狀態）
+- assertVisible: "該如何準備多益"
+
+# 驗證出現搜尋結果（有書籍或結果計數）
+- assertVisible: "共"

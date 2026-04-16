@@ -1,0 +1,14 @@
+appId: com.hyread.reader.v3
+tags:
+  - smoke
+  - ai_book_finder
+---
+# TC-AI-003: AI 搜尋並取得結果
+# 輸入自然語言查詢「歐洲歷史，推薦我小說」，驗證搜尋結果正確呈現
+# 由 run_ai_test.sh 完成導航及中文搜尋，Maestro 從搜尋結果頁開始驗證
+
+# 驗證搜尋結果頁面顯示正確查詢文字
+- assertVisible: "歐洲歷史，推薦我小說"
+
+# 驗證有結果筆數顯示
+- assertVisible: "共"

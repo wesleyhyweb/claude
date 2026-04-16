@@ -1,0 +1,29 @@
+appId: com.hyread.reader.v3
+tags:
+  - ai_book_finder
+---
+# TC-AI-011: 近期搜尋紀錄顯示與點擊重搜
+# 先執行一次搜尋建立紀錄，再重新進入搜尋面板，
+# 驗證近期搜尋區塊顯示，並可點擊重新搜尋
+# 注意：此測試不使用 clearState，需先有搜尋紀錄
+#
+# 由 run_AIRecentSearches.sh 完成首次搜尋，Maestro 從搜尋結果頁開始驗證
+
+# 確認搜尋完成後返回搜尋列
+- tapOn: "推薦適合通勤時閱讀的書"
+- waitForAnimationToEnd
+
+# 驗證近期搜尋區塊出現
+- assertVisible: "近期搜尋"
+
+# 驗證剛才的搜尋紀錄存在
+- assertVisible: "推薦適合通勤時閱讀的書"
+
+# 點擊近期搜尋紀錄重新搜尋
+- tapOn:
+    text: "推薦適合通勤時閱讀的書"
+    index: 0
+- waitForAnimationToEnd
+
+# 驗證重新搜尋後有結果
+- assertVisible: "共"

@@ -1,0 +1,30 @@
+appId: com.hyread.reader.v3
+tags:
+  - smoke
+  - ai_book_finder
+---
+# TC-AI-001: AI 找書首頁內容驗證
+# 驗證進入 AI 找書後，搜尋列、編輯推薦、AI 推薦各區塊皆正確呈現
+
+- runFlow: ../subflows/navigate_to_ai_book_finder.yaml
+
+# 驗證搜尋列 placeholder 文字
+- assertVisible: "您想找什麼書呢？"
+
+# 驗證編輯推薦區塊存在
+- assertVisible: "編輯推薦"
+
+# 驗證 AI 使用者喜好推薦區塊
+- assertVisible: "AI 使用者喜好推薦"
+
+# 向下滾動至 AI 推薦熱門主題
+- scrollUntilVisible:
+    element:
+      text: "AI 推薦熱門主題"
+    direction: DOWN
+    timeout: 5000
+
+- assertVisible: "AI 推薦熱門主題"
+
+# 驗證熱門主題分類標籤可見（至少一個）
+- assertVisible: "歷史文學"

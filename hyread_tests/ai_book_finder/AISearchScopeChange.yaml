@@ -1,0 +1,46 @@
+appId: com.hyread.reader.v3
+tags:
+  - ai_book_finder
+---
+# TC-AI-009: 搜尋範圍（檢索範圍）設定變更
+# 驗證使用者可在 AI 找書搜尋輸入頁面，
+# 透過檢索範圍面板新增或移除圖書館館藏來源
+
+- runFlow: ../subflows/navigate_to_ai_book_finder.yaml
+
+# 點擊搜尋列開啟輸入面板
+- tapOn: "您想找什麼書呢？"
+- waitForAnimationToEnd
+
+# 驗證搜尋輸入面板已開啟
+- assertVisible: "幫你尋找"
+
+# 點擊「檢索範圍」開啟館藏設定
+- tapOn: "檢索範圍"
+- waitForAnimationToEnd
+
+# 驗證檢索範圍面板顯示
+- assertVisible: "全選"
+
+# 驗證圖書館清單存在
+- assertVisible: "臺北市立圖書館"
+
+# 驗證新增圖書館入口
+- assertVisible: "新增常用圖書館"
+
+# 取消勾選一間圖書館（臺北市立圖書館）
+- tapOn:
+    text: "臺北市立圖書館"
+    index: 0
+- waitForAnimationToEnd
+
+# 驗證選項仍存在（可再次勾選）
+- assertVisible: "臺北市立圖書館"
+
+# 點擊「完成」關閉面板
+- runFlow:
+    when:
+      visible: "完成"
+    commands:
+      - tapOn: "完成"
+- waitForAnimationToEnd

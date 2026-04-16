@@ -1,0 +1,37 @@
+appId: com.hyread.reader.v3
+---
+# TC-010: 底部導航切換
+- launchApp:
+    appId: com.hyread.reader.v3
+    clearState: true
+
+- waitForAnimationToEnd
+
+# 點選功能導覽「下一頁」
+- tapOn: 下一頁
+- tapOn: 下一頁
+
+# 關閉功能導覽頁
+- tapOn: 關閉
+
+
+# 從書櫃切換到 AI找書
+- tapOn:
+    text: "AI找書"
+- waitForAnimationToEnd
+- assertVisible:
+    text: "AI找書"
+
+# 切換到我的
+- tapOn:
+    text: "我的"
+- waitForAnimationToEnd
+- assertVisible:
+    text: "HyRead 電子書店"
+
+# 切換回書櫃
+- tapOn:
+    text: "書櫃"
+- waitForAnimationToEnd
+- assertVisible:
+    text: "最近閱讀"

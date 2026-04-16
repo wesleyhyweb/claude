@@ -1,0 +1,32 @@
+appId: com.hyread.reader.v3
+---
+# TC-001: App 啟動與首頁驗證
+- launchApp:
+    appId: com.hyread.reader.v3
+    clearState: true
+
+- waitForAnimationToEnd
+
+# 點選功能導覽「下一頁」
+- tapOn: 下一頁
+- tapOn: 下一頁
+
+# 關閉功能導覽頁
+- tapOn: 關閉
+
+
+# 驗證底部導航列存在
+- assertVisible:
+    text: "書櫃"
+- assertVisible:
+    text: "AI找書"
+- assertVisible:
+    text: "我的"
+
+# 驗證書櫃預設頁面顯示
+- assertVisible:
+    text: "最近閱讀"
+- assertVisible:
+    text: "借閱"
+- assertVisible:
+    text: "收藏"

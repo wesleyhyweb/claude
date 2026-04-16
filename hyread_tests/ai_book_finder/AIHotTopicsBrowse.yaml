@@ -1,0 +1,65 @@
+appId: com.hyread.reader.v3
+tags:
+  - ai_book_finder
+---
+# TC-AI-008: AI 推薦熱門主題瀏覽與查看更多
+# 在 AI 找書首頁滾動至熱門主題區塊，
+# 驗證各主題分類可見，並可展開查看更多書單
+
+- runFlow: ../subflows/navigate_to_ai_book_finder.yaml
+
+# 確認在 AI 找書首頁
+- assertVisible: "您想找什麼書呢？"
+
+# 向下滾動找到 AI 推薦熱門主題
+- scrollUntilVisible:
+    element:
+      text: "AI 推薦熱門主題"
+    direction: DOWN
+    timeout: 5000
+
+# 驗證熱門主題標題
+- assertVisible: "AI 推薦熱門主題"
+
+# 滾動至「歷史文學」主題分類
+- scrollUntilVisible:
+    element:
+      text: "歷史文學"
+    direction: DOWN
+    timeout: 5000
+
+# 驗證「歷史文學」主題分類
+- assertVisible: "歷史文學"
+
+# 繼續滾動至飲食文化主題
+- scrollUntilVisible:
+    element:
+      text: "飲食文化"
+    direction: DOWN
+    timeout: 5000
+
+- assertVisible: "飲食文化"
+
+# 滾動至自我成長主題
+- scrollUntilVisible:
+    element:
+      text: "自我成長"
+    direction: DOWN
+    timeout: 5000
+
+- assertVisible: "自我成長"
+
+# 點擊「歷史文學」主題下的「查看更多」
+- scrollUntilVisible:
+    element:
+      text: "查看更多"
+    direction: UP
+    timeout: 5000
+
+- tapOn:
+    text: "查看更多"
+    index: 0
+- waitForAnimationToEnd
+
+# 驗證展開後有書籍結果呈現
+- assertVisible: "共"

@@ -1,0 +1,26 @@
+appId: com.hyread.reader.v3
+---
+# TC-011: 編輯書櫃功能
+- launchApp:
+    appId: com.hyread.reader.v3
+    clearState: true
+
+- waitForAnimationToEnd
+
+# 點選功能導覽「下一頁」
+- tapOn: 下一頁
+- tapOn: 下一頁
+
+# 關閉功能導覽頁
+- tapOn: 關閉
+
+
+# 確認在書櫃頁
+- tapOn:
+    text: "書櫃"
+- waitForAnimationToEnd
+
+# 點擊「編輯書櫃」
+- tapOn:
+    text: "編輯書櫃"
+- waitForAnimationToEnd

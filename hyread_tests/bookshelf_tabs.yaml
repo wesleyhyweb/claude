@@ -1,0 +1,70 @@
+appId: com.hyread.reader.v3
+---
+# TC-005: 書櫃各分頁切換
+- launchApp:
+    appId: com.hyread.reader.v3
+    clearState: true
+
+- waitForAnimationToEnd
+
+# 點選功能導覽「下一頁」
+- tapOn: 下一頁
+- tapOn: 下一頁
+
+# 關閉功能導覽頁
+- tapOn: 關閉
+
+
+# 確認預設在書櫃頁
+- tapOn:
+    text: "書櫃"
+- waitForAnimationToEnd
+
+# 切換到「最近閱讀」
+- tapOn:
+    text: "最近閱讀"
+- waitForAnimationToEnd
+- assertVisible:
+    text: "最近閱讀"
+
+# 切換到「購買」
+- tapOn:
+    text: "購買"
+- waitForAnimationToEnd
+- assertVisible:
+    text: "購買"
+
+# 切換到「借閱」
+- tapOn:
+    text: "借閱"
+- waitForAnimationToEnd
+- assertVisible:
+    text: "借閱"
+
+# 切換到「嗨讀」
+- tapOn:
+    text: "嗨讀"
+- waitForAnimationToEnd
+- assertVisible:
+    text: "嗨讀"
+
+# 切換到「收藏」
+- tapOn:
+    text: "收藏"
+- waitForAnimationToEnd
+- assertVisible:
+    text: "收藏"
+
+# 切換到「過期」
+- tapOn:
+    text: "過期"
+- waitForAnimationToEnd
+- assertVisible:
+    text: "過期"
+
+# 切換到「預約」
+- tapOn:
+    text: "預約"
+- waitForAnimationToEnd
+- assertVisible:
+    text: "預約"

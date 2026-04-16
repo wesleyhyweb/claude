@@ -1,0 +1,44 @@
+appId: com.hyread.reader.v3
+---
+# TC-003: HyRead 電子書店 - 登入失敗（錯誤帳號密碼）
+- launchApp:
+    appId: com.hyread.reader.v3
+    clearState: true
+
+- waitForAnimationToEnd
+
+# 點選功能導覽「下一頁」
+- tapOn: 下一頁
+- tapOn: 下一頁
+
+# 關閉功能導覽頁
+- tapOn: 關閉
+
+
+- tapOn:
+    text: "我的"
+- waitForAnimationToEnd
+
+- tapOn:
+    text: "HyRead 電子書店_登入"
+- waitForAnimationToEnd
+
+- assertVisible:
+    text: "使用HyRead帳號登入"
+
+# 輸入錯誤帳號密碼
+- tapOn:
+    text: "請輸入帳號"
+- inputText: "wrong_user"
+
+- tapOn:
+    text: "請輸入密碼"
+- inputText: "wrong_pass"
+
+- tapOn:
+    text: "登入"
+- waitForAnimationToEnd
+
+# 驗證仍停留在登入頁（錯誤訊息出現）
+- assertVisible:
+    text: "使用HyRead帳號登入"

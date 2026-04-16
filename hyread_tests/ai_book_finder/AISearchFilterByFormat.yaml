@@ -1,0 +1,33 @@
+appId: com.hyread.reader.v3
+tags:
+  - ai_book_finder
+---
+# TC-AI-006: 搜尋結果篩選 - 書籍格式
+# 執行搜尋後，開啟篩選面板，切換至書籍格式標籤，
+# 驗證格式選項（全部 / EPUB / PDF/JPG / AUDIO）正確呈現，
+# 並可選擇特定格式
+# 由 run_ai_test.sh 完成導航及中文搜尋，Maestro 從搜尋結果頁開始驗證
+
+# 確認已有搜尋結果
+- assertVisible: "共"
+
+# 開啟篩選面板
+- tapOn: "篩選"
+- waitForAnimationToEnd
+
+# 切換至書籍格式區塊
+- tapOn: "書籍格式"
+- waitForAnimationToEnd
+
+# 驗證格式選項存在
+- assertVisible: "全部"
+- assertVisible: "EPUB"
+- assertVisible: "PDF/JPG"
+- assertVisible: "AUDIO"
+
+# 選擇 EPUB 格式
+- tapOn: "EPUB"
+- waitForAnimationToEnd
+
+# 驗證 EPUB 仍可見（選項被套用）
+- assertVisible: "EPUB"

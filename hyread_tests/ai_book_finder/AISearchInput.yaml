@@ -1,0 +1,25 @@
+appId: com.hyread.reader.v3
+tags:
+  - smoke
+  - ai_book_finder
+---
+# TC-AI-002: 搜尋輸入面板展開驗證
+# 點擊搜尋列後應顯示 AI 提示詞建議、鍵盤輸入區域
+
+- runFlow: ../subflows/navigate_to_ai_book_finder.yaml
+
+# 點擊搜尋列展開輸入面板
+- tapOn: "您想找什麼書呢？"
+- waitForAnimationToEnd
+
+# 驗證 AI 搜尋引導文字出現（頁面顯示 AI 幫你尋找... 提示）
+- assertVisible: "幫你尋找"
+
+# 驗證 AI 提示詞建議 chip（服務端提供，需有網路）
+- assertVisible: "該如何準備多益？"
+
+# 驗證另一個提示詞建議 chip
+- assertVisible: "請推薦適合給學生看的歷史漫畫書。"
+
+# 驗證鍵盤 go 送出鍵存在
+- assertVisible: "go"

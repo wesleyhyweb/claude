@@ -1,0 +1,20 @@
+appId: com.hyread.reader.v3
+tags:
+  - ai_book_finder
+---
+# TC-AI-014: 書籍詳情頁借閱資訊與操作
+# 從搜尋結果點入書籍，驗證「館藏資訊」分頁下各圖書館的借閱狀態，
+# 以及「線上瀏覽」或「立即借閱」按鈕的存在
+#
+# 注意：本測試需搭配 run_AIBookDetailBorrowInfo.sh 執行，
+# 由外部 Python 腳本完成中文搜尋輸入及點入書籍（Android 15 限制），
+# Maestro 負責從書籍詳情頁開始驗證後續流程。
+
+# 確認預設在「館藏資訊」分頁
+- assertVisible: "館藏資訊"
+
+# 驗證圖書館借閱狀態資訊
+- assertVisible: "可借閱"
+
+# 驗證借閱按鈕存在
+- assertVisible: "立即借閱"

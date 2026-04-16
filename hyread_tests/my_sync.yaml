@@ -1,0 +1,33 @@
+appId: com.hyread.reader.v3
+---
+# TC-006: 同步功能
+- launchApp:
+    appId: com.hyread.reader.v3
+    clearState: true
+
+- waitForAnimationToEnd
+
+# 點選功能導覽「下一頁」
+- tapOn: 下一頁
+- tapOn: 下一頁
+
+# 關閉功能導覽頁
+- tapOn: 關閉
+
+
+- tapOn:
+    text: "我的"
+- waitForAnimationToEnd
+
+# 確認同步按鈕存在
+- assertVisible:
+    text: "同步"
+
+# 點擊同步
+- tapOn:
+    text: "同步"
+- waitForAnimationToEnd
+
+# 驗證同步完成（頁面仍正常顯示）
+- assertVisible:
+    text: "我的"

@@ -1,0 +1,29 @@
+appId: com.hyread.reader.v3
+---
+# TC-009: 前往電子書店
+- launchApp:
+    appId: com.hyread.reader.v3
+    clearState: true
+
+- waitForAnimationToEnd
+
+# 點選功能導覽「下一頁」
+- tapOn: 下一頁
+- tapOn: 下一頁
+
+# 關閉功能導覽頁
+- tapOn: 關閉
+
+
+- tapOn:
+    text: "我的"
+- waitForAnimationToEnd
+
+# 確認電子書店卡片存在
+- assertVisible:
+    text: "HyRead 電子書店"
+
+# 點擊「前往書店」
+- tapOn:
+    text: "前往書店"
+- waitForAnimationToEnd

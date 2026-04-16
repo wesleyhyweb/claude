@@ -1,0 +1,28 @@
+appId: com.hyread.reader.v3
+tags:
+  - ai_book_finder
+---
+# TC-AI-005: 搜尋結果篩選 - 館藏來源
+# 執行搜尋後，開啟篩選面板，選擇特定館藏來源，
+# 驗證篩選條件套用且館藏選項正確顯示
+# 由 run_ai_test.sh 完成導航及中文搜尋，Maestro 從搜尋結果頁開始驗證
+
+# 確認已有搜尋結果
+- assertVisible: "共"
+
+# 點擊篩選按鈕
+- tapOn: "篩選"
+- waitForAnimationToEnd
+
+# 驗證篩選面板顯示館藏來源區塊
+- assertVisible: "館藏來源"
+
+# 驗證 HyRead 電子書店選項可見
+- assertVisible: "HyRead 電子書店"
+
+# 點選特定圖書館（臺北市立圖書館）
+- tapOn: "臺北市立圖書館"
+- waitForAnimationToEnd
+
+# 確認選項已可被勾選操作（驗證元素仍可見）
+- assertVisible: "臺北市立圖書館"
